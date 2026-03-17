@@ -262,7 +262,7 @@ def scf_loop(enuc, n_basis, n_occ, S, h, eri, max_iter=1000, e_tol = 1e-12, p_to
 
                         B[-1, :-1] = -1
                         B[:-1, -1] = -1
-                        np.fill_diagonal(B, B.diagonal() + 1e-12)
+                        B[:-1, :-1].flat[::B_dim]  += 1e-12
                         B[-1, -1] = 0.0
                         
                         b = np.zeros(B_dim)
