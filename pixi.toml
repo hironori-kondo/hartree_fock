@@ -1,0 +1,27 @@
+[workspace]
+channels = ["conda-forge"]
+name = "hatree_fock"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+hf = "python hf.py"
+
+[dependencies]
+# The Base Language & Build Tools
+python = "3.12.*"
+gfortran = "*"
+clang = "*"
+lld = "*"
+cmake = "*"
+ninja = "*"
+pkg-config = "*"
+
+# Core Math
+numpy = "*"
+scipy = "*"
+numba = "*"
+
+# HPC & Math Libraries
+liblapack = "*"
+libblas = "*"
