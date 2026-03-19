@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 from scipy import linalg
-from numba import njit
+#from numba import njit
 
 """
 This code implements a basic Hartree-Fock SCF procedure with optional DIIS acceleration.
@@ -202,7 +202,7 @@ def _unpack_eri(eri_flat, n_basis):
     p1, q1 = p_idx[I], q_idx[I]
     p2, q2 = p_idx[J], q_idx[J]
     
-    # Assign the remaining 4-fold symmetries (p <-> q and r <-> s). The meshgrid implicitly handles the I <-> J swap.
+    # Assign the remaining 4-fold symmetries (p <-> q and r <-> s).
     eri = np.zeros((n_basis, n_basis, n_basis, n_basis), dtype=np.float64)
     eri[p1, q1, p2, q2] = eri_2d
     eri[q1, p1, p2, q2] = eri_2d
